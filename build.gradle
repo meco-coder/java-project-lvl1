@@ -6,11 +6,15 @@ plugins {
     mainClass = 'hexlet.code.App'
 }
 compileJava {
-  options.release = 15
+  options.release = 11
 }
 
 repositories {
     mavenCentral()
+}
+
+run {
+  standardInput = System.in
 }
 
 
