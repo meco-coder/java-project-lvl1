@@ -68,7 +68,7 @@ public class Engine {
     }
 
     public static void tryAgain() {
-        System.out.println("Let's try again," + Cli.getName() + "!");
+        System.out.println("Let's try again, " + Cli.getName() + "!");
     }
 
     public static int getNumOfRounds() {
