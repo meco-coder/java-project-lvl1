@@ -77,7 +77,7 @@ public class Engine {
 
     public static void gameEndedSuccessfully() {
         if (trueAnswer == ROUND) {
-            System.out.println("Congratulations," + Cli.getName() + "!");
+            System.out.println("Congratulations, " + Cli.getName() + "!");
             trueAnswer = 0;
         }
     }
