@@ -7,11 +7,11 @@ public class Cli {
 
     public static void nameUsr() {
         System.out.println(" ");
-        System.out.println("\nWelcome to the Brain Games!\n" + "May I have your name? ");
+        System.out.print("\nWelcome to the Brain Games!\n" + "May I have your name? ");
         Scanner s = new Scanner(System.in);
         String nameEntered = s.nextLine();
         nameUsr = nameEntered;
-        System.out.println("Hello," + nameUsr + "!");
+        System.out.println("Hello, " + nameUsr + "!");
     }
     public static String getName() {
         return nameUsr;
