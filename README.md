@@ -1,15 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/meco-coder/java-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/meco-coder/java-project-lvl1/actions)
 <a href="https://codeclimate.com/github/codeclimate/codeclimate/maintainability"><img src="https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability" /></a>
-![example workflow](https://github.com/<OWNER>/<REPOSITORY>/actions/workflows/<WORKFLOW_FILE>/badge.svg)
-[![asciicast](https://asciinema.org/a/XHIfkIwoqerQeSJalMjqHIMLJ.svg)](https://asciinema.org/a/XHIfkIwoqerQeSJalMjqHIMLJ)
-[![asciicast](https://asciinema.org/a/lFRkLbfTN3twoBHRdZE3mF23R.svg)](https://asciinema.org/a/lFRkLbfTN3twoBHRdZE3mF23R)
-[![asciicast](https://asciinema.org/a/uowPsd0dmMQkeGLQt8e4fQSrN.svg)](https://asciinema.org/a/uowPsd0dmMQkeGLQt8e4fQSrN)
-[![asciicast](https://asciinema.org/a/UwIBXMPxl2IKVBvx4ltUxdEbm.svg)](https://asciinema.org/a/UwIBXMPxl2IKVBvx4ltUxdEbm)
-[![asciicast](https://asciinema.org/a/XinApiP4XblnZDXMljQnN052e.svg)](https://asciinema.org/a/XinApiP4XblnZDXMljQnN052e)
-[![asciicast](https://asciinema.org/a/AdYgCjjBxdUe5QWsCVNeeCsjh.svg)](https://asciinema.org/a/AdYgCjjBxdUe5QWsCVNeeCsjh)
-[![asciicast](https://asciinema.org/a/49PXl7KhAPi3rYLEkjYSgjiOc.svg)](https://asciinema.org/a/49PXl7KhAPi3rYLEkjYSgjiOc)
-[![asciicast](https://asciinema.org/a/RRrGbuUMWAPOKZQGtDBZjQlIg.svg)](https://asciinema.org/a/RRrGbuUMWAPOKZQGtDBZjQlIg)
-[![asciicast](https://asciinema.org/a/HDAu13rwCTTwpS3q26FgwGCnk.svg)](https://asciinema.org/a/HDAu13rwCTTwpS3q26FgwGCnk)
-[![asciicast](https://asciinema.org/a/NJ8EfgFIQCX1ASbb0NAahYRA0.svg)](https://asciinema.org/a/NJ8EfgFIQCX1ASbb0NAahYRA0)
-[![asciicast](https://asciinema.org/a/BAeqURBINFQOwNC1LHxIzhqex.svg)](https://asciinema.org/a/BAeqURBINFQOwNC1LHxIzhqex)
+![Hexlet project](https://github.com/github/meco-coder/java-project-lvl1/workflows/main.yml/badge.svg)
+
+
