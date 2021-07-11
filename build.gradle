@@ -1,21 +1,29 @@
 plugins {
   id 'com.github.ben-manes.versions' version '0.38.0'
   id 'application'
+  id 'checkstyle'
 }
- application {
+application {
     mainClass = 'hexlet.code.App'
 }
 compileJava {
-  options.release = 11
+    options.release = 15
 }
-
 repositories {
     mavenCentral()
 }
 
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = false
+        html.required = true
+        html.stylesheet resources.text.fromFile('config/xsl/checkstyle-custom.xsl')
+    }
+}
 run {
   standardInput = System.in
 }
+
 
 
 /*
@@ -26,5 +34,4 @@ run {
  */
  group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
-
 
