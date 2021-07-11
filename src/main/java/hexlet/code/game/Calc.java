@@ -14,7 +14,7 @@ public class Calc {
             int resultSub = randomNum1 - randomNum2;
             String[] symbol = {"+", "-", "*"};
             String randomSymbol = symbol[numberSymbol];
-            System.out.print("Question: " + randomNum1 + randomSymbol + randomNum2 + "\nYour answer: ");
+            System.out.print("Question: " + randomNum1 + " " + randomSymbol + " " + randomNum2 + "\nYour answer: ");
             int numberUser = Engine.getAnswerUser().nextInt();
             if (randomSymbol.equals("+") && numberUser == resultSum) {
                 Engine.correctResult();
