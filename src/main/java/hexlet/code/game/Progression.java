@@ -6,7 +6,7 @@ public class Progression {
 
     public static void progressionResult() {
         final int firstNum = 10;
-        final int secondNum = 5;
+        final int secondNum = 6;
         int lengthProgression = firstNum + (int) (Math.random() * ((secondNum - firstNum) + 1));
         int point = (int) (Math.random() * lengthProgression);
         final int maxNum = 50;
