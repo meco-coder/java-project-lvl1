@@ -31,8 +31,8 @@ public class Engine {
                 case "2" -> Even.evenNumber();
                 case "3" -> Calc.calcNumber();
                 case "4" -> GCD.gcdResult();
-                case "5" -> Prime.primeNumber();
-                case "6" -> Progression.progressionResult();
+                case "5" -> Progression.progressionResult();
+                case "6" -> Prime.primeNumber();
                 default -> System.exit(0);
             }
         }

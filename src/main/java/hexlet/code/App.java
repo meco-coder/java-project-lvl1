@@ -39,12 +39,12 @@ public class App {
             }
             case "5" -> {
                 Engine.nameUsr();
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+                System.out.println("What number is missing in the progression?");
                 Engine.gameSelection();
             }
             case "6" -> {
                 Engine.nameUsr();
-                System.out.println("What number is missing in the progression?");
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
                 Engine.gameSelection();
             }
             default -> System.exit(0);
