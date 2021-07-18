@@ -1,11 +1,12 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Calc {
     public static void calcNumber() {
-        int randomNum1 = (int) (Math.random() * Engine.getRangeNum());
-        int randomNum2 = (int) (Math.random() * Engine.getRangeNum());
+        int randomNum1 = Util.getRandomNumb();
+        int randomNum2 = Util.getRandomNumb();
         int numberSymbol = (int) (Math.random() * 2);
         int resultSum = randomNum1 + randomNum2;
         int resultMult = randomNum1 * randomNum2;
@@ -17,23 +18,23 @@ public class Calc {
         if (randomSymbol.equals("+") && numberUser == resultSum) {
             Engine.correctResult();
         } else if (randomSymbol.equals("+") && numberUser != resultSum) {
-            System.out.println("\'" + numberUser + "\'" + Engine.wrongAnswer() + "\'" + resultSum + "\'.");
+            System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + resultSum + "\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
         }
         if (randomSymbol.equals("-") && numberUser == resultSub) {
             Engine.correctResult();
         } else if (randomSymbol.equals("-") && numberUser != resultSub) {
-            System.out.println("\'" + numberUser + "\'" + Engine.wrongAnswer() + "\'" + resultSub + "\'.");
+            System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + resultSub + "\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
         }
         if (randomSymbol.equals("*") && numberUser == resultMult) {
             Engine.correctResult();
         } else if ((randomSymbol.equals("*") && numberUser != resultMult)) {
-            System.out.println("\'" + numberUser + "\'" + Engine.wrongAnswer() + "\'" + resultMult + "\'.");
+            System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + resultMult + "\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
         }
     }
 

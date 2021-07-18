@@ -11,22 +11,12 @@ import java.util.Scanner;
 public class Engine {
     private static Scanner answerUser;
     private static int trueAnswer;
-    private static String wrongAnswer;
+    private static int incorrectAnswer;
     private static final int ROUND = 3;
-    private static final int ROUNDS_COUNT = 50;
-    private static String nameUsr;
-
-    public static void nameUsr() {
-        System.out.println(" ");
-        System.out.print("\nWelcome to the Brain Games!\n" + "May I have your name? ");
-        Scanner s = new Scanner(System.in);
-        String nameEntered = s.nextLine();
-        nameUsr = nameEntered;
-        System.out.println("Hello, " + nameUsr + "!");
-    }
+    public static final String WRONG_ANSWER = " is wrong answer ;(. Correct answer was ";
 
     public static void gameSelection() {
-        for (int i = 0; i < ROUND; i++) {
+        for (int i = 0; i < ROUND && incorrectAnswer == 0; i++) {
             switch (App.getGameNumber()) {
                 case "2" -> Even.evenNumber();
                 case "3" -> Calc.calcNumber();
@@ -39,38 +29,27 @@ public class Engine {
         successfulCompletionOfTheGame();
     }
 
-    public static String getName() {
-        return nameUsr;
-    }
-
-
     public static Scanner getAnswerUser() {
         answerUser = new Scanner(System.in);
         return answerUser;
     }
-
-    public static int getRangeNum() {
-        return ROUNDS_COUNT;
-    }
-
 
     public static void correctResult() {
         System.out.println("Correct!");
         trueAnswer++;
     }
 
-    public static String wrongAnswer() {
-        wrongAnswer = " is wrong answer ;(. Correct answer was ";
-        return wrongAnswer;
+    public static void incorrectAnswer() {
+        incorrectAnswer++;
     }
 
     public static void tryAgain() {
-        System.out.println("Let's try again, " + getName() + "!");
+        System.out.println("Let's try again, " + App.getName() + "!");
     }
 
     public static void successfulCompletionOfTheGame() {
         if (trueAnswer == ROUND) {
-            System.out.println("Congratulations, " + getName() + "!");
+            System.out.println("Congratulations, " + App.getName() + "!");
             trueAnswer = 0;
         }
     }

@@ -1,24 +1,27 @@
 package hexlet.code.game;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Progression {
+    private static final int FIRST_NUM = 10;
+    private static final int SECOND_NUM = 5;
+    private static final int MAX_NUM = 50;
+    private static final int MIN_NUM = 2;
+    private static int hiddenNumber = 0;
 
-    public static void progressionResult() {
-        final int firstNum = 10;
-        final int secondNum = 5;
-        int lengthProgression = firstNum + (int) (Math.random() * ((secondNum - firstNum) + 1));
+    public static StringBuilder progressionCalculation() {
+        int lengthProgression = FIRST_NUM + (int) (Math.random() * ((SECOND_NUM - FIRST_NUM) + 1));
         int point = (int) (Math.random() * lengthProgression);
-        final int maxNum = 50;
-        final int minNum = 2;
-        int randomNum = minNum + (int) (Math.random() * ((maxNum - minNum) + 1));
-        int interval = (int) (Math.random() * Engine.getRangeNum());
+        int randomNum = MIN_NUM + (int) (Math.random() * ((MAX_NUM - MIN_NUM) + 1));
+        int interval = Util.getRandomNumb();
         int[] progression = new int[lengthProgression];
         progression[0] = randomNum;
         for (int j = 0; j < lengthProgression - 1; j++) {
             progression[0] = randomNum;
             progression[j + 1] = progression[j] + interval;
         }
+        hiddenNumber = progression[point];
         String[] progressionResult = new String[lengthProgression];
         StringBuilder question = new StringBuilder();
         for (int j = 0; j < lengthProgression; j++) {
@@ -28,14 +31,19 @@ public class Progression {
         for (int j = 0; j < lengthProgression; j++) {
             question.append(progressionResult[j]).append(" ");
         }
-        System.out.print("Question: " + question.toString() + "\nYour answer: ");
+        return question;
+    }
+
+    public static void progressionResult() {
+        System.out.print("Question: " + progressionCalculation().toString() + "\nYour answer: ");
         int numberUser = Engine.getAnswerUser().nextInt();
-        if (numberUser == progression[point]) {
+        if (numberUser == hiddenNumber) {
             Engine.correctResult();
-        } else if (numberUser != progression[point]) {
-            System.out.println("\'" + numberUser + "\'" + Engine.wrongAnswer() + "\'" + progression[point] + "\'.");
+            hiddenNumber = 0;
+        } else if (numberUser != hiddenNumber) {
+            System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + hiddenNumber + "\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
         }
     }
 }

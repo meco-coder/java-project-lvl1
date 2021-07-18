@@ -1,40 +1,39 @@
 package hexlet.code.game;
 
-import java.util.Arrays;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class Prime {
-    private static int[] listDivider = new int[0];
     private static int conditionIsSatisfied = 0;
+    private static int randomNum = 2 + Util.getRandomNumb();
 
-    public static void primeNumber() {
-        int randomNum = 2 + (int) (Math.random() * Engine.getRangeNum());
-        System.out.print("Question: " + randomNum + "\nYour answer: ");
-        String numberUser = Engine.getAnswerUser().nextLine();
+    public static void primeCalculation() {
         for (int j = 2; j <= randomNum; j++) {
             if (randomNum % j == 0) {
-                listDivider = Arrays.copyOf(listDivider, conditionIsSatisfied + 1);
-                listDivider[conditionIsSatisfied] = j;
                 conditionIsSatisfied++;
             }
         }
-        if (numberUser.equals("yes") && listDivider.length == 1) {
+    }
+
+    public static void primeNumber() {
+        System.out.print("Question: " + randomNum + "\nYour answer: ");
+        String numberUser = Engine.getAnswerUser().nextLine();
+        primeCalculation();
+        if (numberUser.equals("yes") && conditionIsSatisfied == 1) {
             Engine.correctResult();
-            listDivider = new int[0];
             conditionIsSatisfied = 0;
-        } else if (numberUser.equals("no") && listDivider.length != 1) {
+        } else if (numberUser.equals("no") && conditionIsSatisfied != 1) {
             Engine.correctResult();
-            listDivider = new int[0];
             conditionIsSatisfied = 0;
-        } else if (numberUser.equals("no") && listDivider.length == 1) {
-            System.out.println("\'no\'" + Engine.wrongAnswer() + "\'yes\'.");
+        } else if (numberUser.equals("no") && conditionIsSatisfied == 1) {
+            System.out.println("\'no\'" + Engine.WRONG_ANSWER + "\'yes\'.");
             Engine.tryAgain();
             System.exit(0);
-        } else if (numberUser.equals("yes") && listDivider.length != 1) {
-            System.out.println("\'yes\'" + Engine.wrongAnswer() + "\'no\'.");
+        } else if (numberUser.equals("yes") && conditionIsSatisfied != 1) {
+            System.out.println("\'yes\'" + Engine.WRONG_ANSWER + "\'no\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
         }
     }
 }
