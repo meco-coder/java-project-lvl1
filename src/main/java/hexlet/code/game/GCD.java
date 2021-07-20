@@ -23,10 +23,12 @@ public class GCD {
         int gcd = gcdCalculation();
         if (numberUser == gcd) {
             Engine.correctResult();
+            Engine.gameSelection();
         } else if (numberUser != gcd) {
             System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + gcd + "\'.");
             Engine.tryAgain();
             Engine.incorrectAnswer();
+            Engine.gameSelection();
         }
     }
 }

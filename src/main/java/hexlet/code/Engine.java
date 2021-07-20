@@ -1,11 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.game.Progression;
-import hexlet.code.game.Even;
-import hexlet.code.game.Prime;
-import hexlet.code.game.Calc;
-import hexlet.code.game.GCD;
-
 import java.util.Scanner;
 
 public class Engine {
@@ -15,16 +9,10 @@ public class Engine {
     private static final int ROUND = 3;
     public static final String WRONG_ANSWER = " is wrong answer ;(. Correct answer was ";
 
+
     public static void gameSelection() {
-        for (int i = 0; i < ROUND && incorrectAnswer == 0; i++) {
-            switch (App.getGameNumber()) {
-                case "2" -> Even.evenNumber();
-                case "3" -> Calc.calcNumber();
-                case "4" -> GCD.gcdResult();
-                case "5" -> Progression.progressionResult();
-                case "6" -> Prime.primeNumber();
-                default -> System.exit(0);
-            }
+        if (trueAnswer < ROUND && incorrectAnswer == 0) {
+            App.gameSelection();
         }
         successfulCompletionOfTheGame();
     }

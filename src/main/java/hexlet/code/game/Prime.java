@@ -23,13 +23,16 @@ public class Prime {
         if (numberUser.equals("yes") && conditionIsSatisfied == 1) {
             Engine.correctResult();
             conditionIsSatisfied = 0;
+            Engine.gameSelection();
         } else if (numberUser.equals("no") && conditionIsSatisfied != 1) {
             Engine.correctResult();
             conditionIsSatisfied = 0;
+            Engine.gameSelection();
         } else if (numberUser.equals("no") && conditionIsSatisfied == 1) {
             System.out.println("\'no\'" + Engine.WRONG_ANSWER + "\'yes\'.");
             Engine.tryAgain();
-            System.exit(0);
+            Engine.incorrectAnswer();
+            Engine.gameSelection();
         } else if (numberUser.equals("yes") && conditionIsSatisfied != 1) {
             System.out.println("\'yes\'" + Engine.WRONG_ANSWER + "\'no\'.");
             Engine.tryAgain();

@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.game.Progression;
+import hexlet.code.game.Even;
+import hexlet.code.game.Prime;
+import hexlet.code.game.Calc;
+import hexlet.code.game.GCD;
+
 import java.util.Scanner;
 
 public class App {
@@ -16,7 +22,7 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        gameSelection();
+        game();
     }
 
     public static void nameUsr() {
@@ -28,36 +34,48 @@ public class App {
         System.out.println("Hello, " + nameUsr + "!");
     }
 
-    public static void gameSelection() {
+    public static void game() {
         gameNumber();
-        switch (gameNumber) {
-            case "1" -> nameUsr();
-            case "2" -> {
-                nameUsr();
-                System.out.println("Answer \'yes\' if the number is even, otherwise answer \'no\'.");
-                Engine.gameSelection();
-            }
-            case "3" -> {
-                nameUsr();
-                System.out.println("What is the result of the expression?");
-                Engine.gameSelection();
-            }
-            case "4" -> {
-                nameUsr();
-                System.out.println("Find the greatest common divisor of given numbers.");
-                Engine.gameSelection();
-            }
-            case "5" -> {
-                nameUsr();
-                System.out.println("What number is missing in the progression?");
-                Engine.gameSelection();
-            }
-            case "6" -> {
-                nameUsr();
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                Engine.gameSelection();
-            }
-            default -> System.exit(0);
+        if ("1".equals(gameNumber)) {
+            nameUsr();
+        } else if ("2".equals(gameNumber)) {
+            nameUsr();
+            System.out.println("Answer \'yes\' if the number is even, otherwise answer \'no\'.");
+            Even.evenNumber();
+        } else if ("3".equals(gameNumber)) {
+            nameUsr();
+            System.out.println("What is the result of the expression?");
+            Calc.calcNumber();
+        } else if ("4".equals(gameNumber)) {
+            nameUsr();
+            System.out.println("Find the greatest common divisor of given numbers.");
+            GCD.gcdResult();
+        } else if ("5".equals(gameNumber)) {
+            nameUsr();
+            System.out.println("What number is missing in the progression?");
+            Progression.progressionResult();
+        } else if ("6".equals(gameNumber)) {
+            nameUsr();
+            System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+            Prime.primeNumber();
+        } else {
+            System.exit(0);
+        }
+    }
+
+    public static void gameSelection() {
+        if (App.getGameNumber().equals("2")) {
+            Even.evenNumber();
+        } else if (App.getGameNumber().equals("3")) {
+            Calc.calcNumber();
+        } else if (App.getGameNumber().equals("4")) {
+            GCD.gcdResult();
+        } else if (App.getGameNumber().equals("5")) {
+            Progression.progressionResult();
+        } else if (App.getGameNumber().equals("6")) {
+            Prime.primeNumber();
+        } else if (App.getGameNumber().equals("0")) {
+            System.exit(0);
         }
     }
 

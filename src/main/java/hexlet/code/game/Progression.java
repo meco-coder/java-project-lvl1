@@ -40,10 +40,12 @@ public class Progression {
         if (numberUser == hiddenNumber) {
             Engine.correctResult();
             hiddenNumber = 0;
+            Engine.gameSelection();
         } else if (numberUser != hiddenNumber) {
             System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + hiddenNumber + "\'.");
             Engine.tryAgain();
             Engine.incorrectAnswer();
+            Engine.gameSelection();
         }
     }
 }
