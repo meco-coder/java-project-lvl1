@@ -8,9 +8,9 @@ public class Progression {
     private static final int SECOND_NUM = 5;
     private static final int MAX_NUM = 50;
     private static final int MIN_NUM = 2;
-    private static int hiddenNumber = 0;
 
-    public static StringBuilder progressionCalculation() {
+    public static void questionAndProgressionCalculation(String nameUsr) {
+        while (Engine.getTrueAnswer() < Engine.getRound() && Engine.getIncorrectAnswer() == 0) {
         int lengthProgression = FIRST_NUM + (int) (Math.random() * ((SECOND_NUM - FIRST_NUM) + 1));
         int point = (int) (Math.random() * lengthProgression);
         int randomNum = MIN_NUM + (int) (Math.random() * ((MAX_NUM - MIN_NUM) + 1));
@@ -21,7 +21,7 @@ public class Progression {
             progression[0] = randomNum;
             progression[j + 1] = progression[j] + interval;
         }
-        hiddenNumber = progression[point];
+        int hiddenNumber = progression[point];
         String[] progressionResult = new String[lengthProgression];
         StringBuilder question = new StringBuilder();
         for (int j = 0; j < lengthProgression; j++) {
@@ -31,21 +31,11 @@ public class Progression {
         for (int j = 0; j < lengthProgression; j++) {
             question.append(progressionResult[j]).append(" ");
         }
-        return question;
+        System.out.print("Question: " + question.toString() + "\nYour answer: ");
+        int numberUser = Engine.getAnswerUser().nextInt();
+        Engine.progressionResult(numberUser,hiddenNumber,nameUsr);
+        }
+        Engine.successfulCompletionOfTheGame(nameUsr);
     }
 
-    public static void progressionResult() {
-        System.out.print("Question: " + progressionCalculation().toString() + "\nYour answer: ");
-        int numberUser = Engine.getAnswerUser().nextInt();
-        if (numberUser == hiddenNumber) {
-            Engine.correctResult();
-            hiddenNumber = 0;
-            Engine.gameSelection();
-        } else if (numberUser != hiddenNumber) {
-            System.out.println("\'" + numberUser + "\'" + Engine.WRONG_ANSWER + "\'" + hiddenNumber + "\'.");
-            Engine.tryAgain();
-            Engine.incorrectAnswer();
-            Engine.gameSelection();
-        }
-    }
 }
