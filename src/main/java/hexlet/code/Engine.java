@@ -63,29 +63,29 @@ public class Engine {
         }
     }
 
-    public static void CalcNumber(String Symbol, int numUser, int resSum, int resSub, int resMult, String nameUsr) {
-        if (Symbol.equals("+") && numUser == resSum) {
+    public static void calcNumber(String symbol, int numUser, int resSum, int resSub, int resMult, String nameUsr) {
+        if (symbol.equals("+") && numUser == resSum) {
             correctResult();
 
-        } else if (Symbol.equals("+") && numUser != resSum) {
+        } else if (symbol.equals("+") && numUser != resSum) {
             System.out.println("\'" + numUser + "\'" + WRONG_ANSWER + "\'" + resSum + "\'.");
             System.out.println("Let's try again, " + nameUsr + "!");
             incorrectAnswer();
 
         }
-        if (Symbol.equals("-") && numUser == resSub) {
+        if (symbol.equals("-") && numUser == resSub) {
             correctResult();
 
-        } else if (Symbol.equals("-") && numUser != resSub) {
+        } else if (symbol.equals("-") && numUser != resSub) {
             System.out.println("\'" + numUser + "\'" + WRONG_ANSWER + "\'" + resSub + "\'.");
             System.out.println("Let's try again, " + nameUsr + "!");
             incorrectAnswer();
 
         }
-        if (Symbol.equals("*") && numUser == resMult) {
+        if (symbol.equals("*") && numUser == resMult) {
             correctResult();
 
-        } else if ((Symbol.equals("*") && numUser != resMult)) {
+        } else if ((symbol.equals("*") && numUser != resMult)) {
             System.out.println("\'" + numUser + "\'" + WRONG_ANSWER + "\'" + resMult + "\'.");
             System.out.println("Let's try again, " + nameUsr + "!");
             incorrectAnswer();
@@ -150,6 +150,7 @@ public class Engine {
         } else if (numberUser.equals("yes") && conditionIsSatisfied != 1) {
             System.out.println("\'yes\'" + WRONG_ANSWER + "\'no\'.");
             System.out.println("Let's try again, " + nameUsr + "!");
+            incorrectAnswer();
         }
     }
 }
