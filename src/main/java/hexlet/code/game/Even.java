@@ -4,13 +4,24 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 public class Even {
+    private static final int ROUND = 3;
     public static void questionEvenNumber(String nameUsr) {
-        while (Engine.getTrueAnswer() < Engine.getRound() && Engine.getIncorrectAnswer() == 0) {
-            int randomNumb = Util.getRandomNumb();
-            System.out.print("Question: " + randomNumb + "\n" + "Your answer: ");
-            String numberUser = Engine.getAnswerUser().nextLine();
-            Engine.resultEvenNumber(randomNumb, numberUser, nameUsr);
+        int[] question = new int[ROUND];
+        for (int i = 0; i < question.length; i++) {
+            question[i] = Util.getRandomNumb();
         }
-        Engine.successfulCompletionOfTheGame(nameUsr);
+        resultEvenNumber(question, nameUsr);
+    }
+
+    public static void resultEvenNumber(int[] question, String nameUsr) {
+        String[] answer = new String[ROUND];
+        for (int i = 0; i < question.length; i++) {
+            if (question[i] % 2 == 0) {
+                answer[i] = "yes";
+            } else if (question[i] % 2 != 0) {
+                answer[i] = "no";
+            }
+        }
+        Engine.questionAndAnswerForString(question, answer, nameUsr);
     }
 }

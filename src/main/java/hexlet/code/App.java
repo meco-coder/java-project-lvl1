@@ -58,7 +58,7 @@ public class App {
             case "5":
                 nameUsr();
                 System.out.println("What number is missing in the progression?");
-                Progression.questionAndProgressionCalculation(nameUsr);
+                Progression.progressionCalculation(nameUsr);
                 break;
             case "6":
                 nameUsr();

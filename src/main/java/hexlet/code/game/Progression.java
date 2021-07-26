@@ -8,9 +8,12 @@ public class Progression {
     private static final int SECOND_NUM = 5;
     private static final int MAX_NUM = 50;
     private static final int MIN_NUM = 2;
+    private static final int ROUND = 3;
 
-    public static void questionAndProgressionCalculation(String nameUsr) {
-        while (Engine.getTrueAnswer() < Engine.getRound() && Engine.getIncorrectAnswer() == 0) {
+    public static void progressionCalculation(String nameUsr) {
+        StringBuilder[] questionResult = new StringBuilder[ROUND];
+        int[] hiddenNumberResult = new int[ROUND];
+        for (int i = 0; i < questionResult.length; i++) {
             int lengthProgression = FIRST_NUM + (int) (Math.random() * ((SECOND_NUM - FIRST_NUM) + 1));
             int point = (int) (Math.random() * lengthProgression);
             int randomNum = MIN_NUM + (int) (Math.random() * ((MAX_NUM - MIN_NUM) + 1));
@@ -31,11 +34,10 @@ public class Progression {
             for (int j = 0; j < lengthProgression; j++) {
                 question.append(progressionResult[j]).append(" ");
             }
-            System.out.print("Question: " + question.toString() + "\nYour answer: ");
-            int numberUser = Engine.getAnswerUser().nextInt();
-            Engine.progressionResult(numberUser, hiddenNumber, nameUsr);
+            hiddenNumberResult[i] = hiddenNumber;
+            questionResult[i] = question;
         }
-        Engine.successfulCompletionOfTheGame(nameUsr);
-    }
+        Engine.questionAndAnswerForNumb(questionResult, hiddenNumberResult, nameUsr);
 
+    }
 }
