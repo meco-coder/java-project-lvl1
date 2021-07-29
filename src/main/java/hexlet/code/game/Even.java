@@ -15,13 +15,15 @@ public class Even {
 
     public static void resultEvenNumber(int[] question, String nameUsr) {
         String[] answer = new String[ROUND];
+        String[] questionResult = new String[ROUND];
         for (int i = 0; i < question.length; i++) {
             if (question[i] % 2 == 0) {
                 answer[i] = "yes";
             } else if (question[i] % 2 != 0) {
                 answer[i] = "no";
             }
+            questionResult[i] = String.valueOf(question[i]);
         }
-        Engine.questionAndAnswerForString(question, answer, nameUsr);
+        Engine.questionAndAnswerForString(questionResult, answer, nameUsr);
     }
 }

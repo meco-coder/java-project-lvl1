@@ -6,6 +6,7 @@ import hexlet.code.Util;
 
 public class Prime {
     private static final int ROUND = 3;
+
     public static void questionPrime(String nameUsr) {
         int[] question = new int[ROUND];
         for (int i = 0; i < question.length; i++) {
@@ -30,13 +31,15 @@ public class Prime {
 
     public static void primeNumberResult(int[] question, String nameUsr, int[] result) {
         String[] answer = new String[ROUND];
+        String[] questionResult = new String[ROUND];
         for (int i = 0; i < result.length; i++) {
             if (result[i] == 1) {
                 answer[i] = "yes";
             } else if (result[i] != 1) {
                 answer[i] = "no";
             }
+            questionResult[i] = String.valueOf(question[i]);
         }
-        Engine.questionAndAnswerForString(question, answer, nameUsr);
+        Engine.questionAndAnswerForString(questionResult, answer, nameUsr);
     }
 }

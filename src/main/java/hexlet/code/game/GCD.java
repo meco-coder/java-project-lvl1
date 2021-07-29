@@ -5,8 +5,9 @@ import hexlet.code.Util;
 
 public class GCD {
     private static final int ROUND = 3;
+
     public static void questionGCD(String nameUsr) {
-        StringBuilder[] questionResult = new StringBuilder[ROUND];
+        String[] questionResult = new String[ROUND];
         int[] randomNum1 = new int[ROUND];
         int[] randomNum2 = new int[ROUND];
         for (int i = 0; i < questionResult.length; i++) {
@@ -14,13 +15,13 @@ public class GCD {
             randomNum2[i] = Util.getRandomNumb();
             StringBuilder question = new StringBuilder();
             question.append(randomNum1[i]).append(" ").append(randomNum2[i]);
-            questionResult[i] = question;
+            questionResult[i] = question.toString();
         }
         gcdCalculation(questionResult, randomNum1, randomNum2, nameUsr);
     }
 
-    public static void gcdCalculation(StringBuilder[] questionResult, int[] randNum1, int[] randNum2, String nameUsr) {
-        int[] gcdResult = new int[ROUND];
+    public static void gcdCalculation(String[] questionResult, int[] randNum1, int[] randNum2, String nameUsr) {
+        String[] gcdResult = new String[ROUND];
         for (int i = 0; i < questionResult.length; i++) {
             int gcd = 0;
             for (int j = 1; j <= Util.getMax(); j++) {
@@ -28,8 +29,8 @@ public class GCD {
                     gcd = j;
                 }
             }
-            gcdResult[i] = gcd;
+            gcdResult[i] = String.valueOf(gcd);
         }
-        Engine.questionAndAnswerForNumb(questionResult, gcdResult, nameUsr);
+        Engine.questionAndAnswerForString(questionResult, gcdResult, nameUsr);
     }
 }

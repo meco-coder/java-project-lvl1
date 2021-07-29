@@ -9,8 +9,8 @@ public class Calc {
     public static void questionCalcNumber(String nameUsr) {
         String[] symbol = {"+", "-", "*"};
         String[] randomSymbol = new String[ROUND];
-        int[] calculationResult = new int[ROUND];
-        StringBuilder[] questionResult = new StringBuilder[ROUND];
+        String[] calculationResult = new String[ROUND];
+        String[] questionResult = new String[ROUND];
         for (int i = 0; i < questionResult.length; i++) {
             int randomNum1 = Util.getRandomNumb();
             int randomNum2 = Util.getRandomNumb();
@@ -18,22 +18,22 @@ public class Calc {
             randomSymbol[i] = symbol[numberSymbol];
             switch (randomSymbol[i]) {
                 case "+":
-                    calculationResult[i] = randomNum1 + randomNum2;
+                    calculationResult[i] = String.valueOf(randomNum1 + randomNum2);
                     break;
                 case "-":
-                    calculationResult[i] = randomNum1 - randomNum2;
+                    calculationResult[i] = String.valueOf(randomNum1 - randomNum2);
                     break;
                 case "*":
-                    calculationResult[i] = randomNum1 * randomNum2;
+                    calculationResult[i] = String.valueOf(randomNum1 * randomNum2);
                     break;
                 default:
                     break;
             }
             StringBuilder question = new StringBuilder();
             question.append(randomNum1).append(" ").append(randomSymbol[i]).append(" ").append(randomNum2);
-            questionResult[i] = question;
+            questionResult[i] = question.toString();
         }
-        Engine.questionAndAnswerForNumb(questionResult, calculationResult, nameUsr);
+        Engine.questionAndAnswerForString(questionResult, calculationResult, nameUsr);
 
     }
 }

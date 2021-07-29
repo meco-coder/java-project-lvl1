@@ -11,8 +11,8 @@ public class Progression {
     private static final int ROUND = 3;
 
     public static void progressionCalculation(String nameUsr) {
-        StringBuilder[] questionResult = new StringBuilder[ROUND];
-        int[] hiddenNumberResult = new int[ROUND];
+        String[] questionResult = new String[ROUND];
+        String[] hiddenNumberResult = new String[ROUND];
         for (int i = 0; i < questionResult.length; i++) {
             int lengthProgression = FIRST_NUM + (int) (Math.random() * ((SECOND_NUM - FIRST_NUM) + 1));
             int point = (int) (Math.random() * lengthProgression);
@@ -34,10 +34,10 @@ public class Progression {
             for (int j = 0; j < lengthProgression; j++) {
                 question.append(progressionResult[j]).append(" ");
             }
-            hiddenNumberResult[i] = hiddenNumber;
-            questionResult[i] = question;
+            hiddenNumberResult[i] = String.valueOf(hiddenNumber);
+            questionResult[i] = question.toString();
         }
-        Engine.questionAndAnswerForNumb(questionResult, hiddenNumberResult, nameUsr);
+        Engine.questionAndAnswerForString(questionResult, hiddenNumberResult, nameUsr);
 
     }
 }
