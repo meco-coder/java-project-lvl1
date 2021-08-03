@@ -9,7 +9,7 @@ import hexlet.code.game.GCD;
 import java.util.Scanner;
 
 public class App {
-    private static String nameUsr;
+    private static String nameUser;
 
     public static void main(String[] args) {
         game();
@@ -21,27 +21,27 @@ public class App {
         String gameNumber = userInputString.nextLine();
         switch (gameNumber) {
             case "1":
-                Cli.nameUsr(nameUsr);
+                Cli.nameUsr(userInputString);
                 break;
             case "2":
                 requestUserName(userInputString);
-                Even.questionAndResultEvenNumber(nameUsr, userInputString);
+                Even.questionAndResultEvenNumber(nameUser, userInputString);
                 break;
             case "3":
                 requestUserName(userInputString);
-                Calc.questionCalcNumber(nameUsr, userInputString);
+                Calc.questionCalcNumber(nameUser, userInputString);
                 break;
             case "4":
                 requestUserName(userInputString);
-                GCD.questionGCD(nameUsr, userInputString);
+                GCD.questionGCD(nameUser, userInputString);
                 break;
             case "5":
                 requestUserName(userInputString);
-                Progression.progressionCalculation(nameUsr, userInputString);
+                Progression.progressionCalculation(nameUser, userInputString);
                 break;
             case "6":
                 requestUserName(userInputString);
-                Prime.questionPrime(nameUsr, userInputString);
+                Prime.questionPrime(nameUser, userInputString);
                 break;
             default:
                 System.out.println();
@@ -53,9 +53,8 @@ public class App {
         System.out.println(" ");
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        String nameEntered = userInputString.nextLine();
-        nameUsr = nameEntered;
-        System.out.println("Hello, " + nameUsr + "!");
+        nameUser = userInputString.nextLine();
+        System.out.println("Hello, " + nameUser + "!");
     }
 
     public static void printMenu() {
