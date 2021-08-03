@@ -12,6 +12,53 @@ public class App {
     private static String nameUsr;
 
     public static void main(String[] args) {
+        game();
+    }
+
+    public static void game() {
+        printMenu();
+        Scanner userInputString = new Scanner(System.in);
+        String gameNumber = userInputString.nextLine();
+        switch (gameNumber) {
+            case "1":
+                Cli.nameUsr(nameUsr);
+                break;
+            case "2":
+                requestUserName(userInputString);
+                Even.questionAndResultEvenNumber(nameUsr, userInputString);
+                break;
+            case "3":
+                requestUserName(userInputString);
+                Calc.questionCalcNumber(nameUsr, userInputString);
+                break;
+            case "4":
+                requestUserName(userInputString);
+                GCD.questionGCD(nameUsr, userInputString);
+                break;
+            case "5":
+                requestUserName(userInputString);
+                Progression.progressionCalculation(nameUsr, userInputString);
+                break;
+            case "6":
+                requestUserName(userInputString);
+                Prime.questionPrime(nameUsr, userInputString);
+                break;
+            default:
+                System.out.println();
+                break;
+        }
+    }
+
+    public static void requestUserName(Scanner userInputString) {
+        System.out.println(" ");
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        String nameEntered = userInputString.nextLine();
+        nameUsr = nameEntered;
+        System.out.println("Hello, " + nameUsr + "!");
+    }
+
+    public static void printMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -21,53 +68,5 @@ public class App {
         System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
-        game();
-    }
-
-    public static void nameUsr() {
-        System.out.println(" ");
-        System.out.print("\nWelcome to the Brain Games!\n" + "May I have your name? ");
-        Scanner s = new Scanner(System.in);
-        String nameEntered = s.nextLine();
-        nameUsr = nameEntered;
-        System.out.println("Hello, " + nameUsr + "!");
-    }
-
-    public static void game() {
-        Scanner strUser = new Scanner(System.in);
-        String gameNumber = strUser.nextLine();
-        switch (gameNumber) {
-            case "1":
-                nameUsr();
-                break;
-            case "2":
-                nameUsr();
-                System.out.println("Answer \'yes\' if the number is even, otherwise answer \'no\'.");
-                Even.questionEvenNumber(nameUsr);
-                break;
-            case "3":
-                nameUsr();
-                System.out.println("What is the result of the expression?");
-                Calc.questionCalcNumber(nameUsr);
-                break;
-            case "4":
-                nameUsr();
-                System.out.println("Find the greatest common divisor of given numbers.");
-                GCD.questionGCD(nameUsr);
-                break;
-            case "5":
-                nameUsr();
-                System.out.println("What number is missing in the progression?");
-                Progression.progressionCalculation(nameUsr);
-                break;
-            case "6":
-                nameUsr();
-                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-                Prime.questionPrime(nameUsr);
-                break;
-            default:
-                System.out.println();
-                break;
-        }
     }
 }

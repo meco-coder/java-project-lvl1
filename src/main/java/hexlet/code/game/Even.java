@@ -3,20 +3,20 @@ package hexlet.code.game;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class Even {
-    private static final int ROUND = 3;
-    public static void questionEvenNumber(String nameUsr) {
-        int[] question = new int[ROUND];
-        for (int i = 0; i < question.length; i++) {
-            question[i] = Util.getRandomNumb();
-        }
-        resultEvenNumber(question, nameUsr);
-    }
+import java.util.Scanner;
 
-    public static void resultEvenNumber(int[] question, String nameUsr) {
-        String[] answer = new String[ROUND];
-        String[] questionResult = new String[ROUND];
+public class Even {
+    private static final int ROUNDS_COUNT = 3;
+    private static final int MAXIMUM_VALUE_LIMIT = 50;
+    private static final int MINIMUM_VALUE_LIMIT = 0;
+
+    public static void questionAndResultEvenNumber(String nameUsr, Scanner userInputString) {
+        System.out.println("Answer \'yes\' if the number is even, otherwise answer \'no\'.");
+        int[] question = new int[ROUNDS_COUNT];
+        String[] answer = new String[ROUNDS_COUNT];
+        String[] questionResult = new String[ROUNDS_COUNT];
         for (int i = 0; i < question.length; i++) {
+            question[i] = Util.getRandomNumb(MAXIMUM_VALUE_LIMIT, MINIMUM_VALUE_LIMIT);
             if (question[i] % 2 == 0) {
                 answer[i] = "yes";
             } else if (question[i] % 2 != 0) {
@@ -24,6 +24,6 @@ public class Even {
             }
             questionResult[i] = String.valueOf(question[i]);
         }
-        Engine.questionAndAnswerForString(questionResult, answer, nameUsr);
+        Engine.launchGameRounds(questionResult, answer, nameUsr, userInputString);
     }
 }
