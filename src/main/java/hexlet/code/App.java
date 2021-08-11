@@ -25,23 +25,23 @@ public class App {
                 break;
             case "2":
                 requestUserName(userInputString);
-                Even.questionAndResultEvenNumber(nameUser, userInputString);
+                Even.runEvenGame(nameUser, userInputString);
                 break;
             case "3":
                 requestUserName(userInputString);
-                Calc.questionCalcNumber(nameUser, userInputString);
+                Calc.runCalcGame(nameUser, userInputString);
                 break;
             case "4":
                 requestUserName(userInputString);
-                GCD.questionGCD(nameUser, userInputString);
+                GCD.runGCDGame(nameUser, userInputString);
                 break;
             case "5":
                 requestUserName(userInputString);
-                Progression.progressionCalculation(nameUser, userInputString);
+                Progression.runProgressionGame(nameUser, userInputString);
                 break;
             case "6":
                 requestUserName(userInputString);
-                Prime.questionPrime(nameUser, userInputString);
+                Prime.runPrimeGame(nameUser, userInputString);
                 break;
             default:
                 System.out.println();

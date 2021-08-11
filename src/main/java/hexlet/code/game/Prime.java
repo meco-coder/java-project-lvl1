@@ -7,44 +7,43 @@ import hexlet.code.Util;
 import java.util.Scanner;
 
 public class Prime {
-    private static final int ROUNDS_COUNT = 3;
-    private static final int MAXIMUM_VALUE_LIMIT = 50;
-    private static final int MINIMUM_VALUE_LIMIT = 0;
 
-    public static void questionPrime(String nameUsr, Scanner userInputString) {
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        int[] question = new int[ROUNDS_COUNT];
-        for (int i = 0; i < question.length; i++) {
-            question[i] = 2 + Util.getRandomNumb(MAXIMUM_VALUE_LIMIT, MINIMUM_VALUE_LIMIT);
+    private static final String QUESTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    public static void runPrimeGame(String nameUsr, Scanner userInputString) {
+        System.out.println(QUESTION);
+        int[] questions = new int[Engine.ROUNDS_COUNT];
+        for (int i = 0; i < questions.length; i++) {
+            questions[i] = 2 + Util.getRandomNumb(Engine.MAXIMUM_VALUE_LIMIT, Engine.MINIMUM_VALUE_LIMIT);
         }
-        primeCalculation(question, nameUsr, userInputString);
+        primeCalculation(questions, nameUsr, userInputString);
     }
 
-    public static void primeCalculation(int[] question, String nameUsr, Scanner userInputString) {
-        int[] result = new int[ROUNDS_COUNT];
-        for (int i = 0; i < question.length; i++) {
+    public static void primeCalculation(int[] questions, String nameUsr, Scanner userInputString) {
+        int[] results = new int[Engine.ROUNDS_COUNT];
+        for (int i = 0; i < questions.length; i++) {
             int conditionIsSatisfied = 0;
-            for (int j = 2; j <= question[i]; j++) {
-                if (question[i] % j == 0) {
+            for (int j = 2; j <= questions[i]; j++) {
+                if (questions[i] % j == 0) {
                     conditionIsSatisfied++;
                 }
-                result[i] = conditionIsSatisfied;
+                results[i] = conditionIsSatisfied;
             }
         }
-        primeNumberResult(question, nameUsr, result, userInputString);
+        primeNumberResult(questions, nameUsr, results, userInputString);
     }
 
-    public static void primeNumberResult(int[] question, String nameUsr, int[] result, Scanner userInputString) {
-        String[] answer = new String[ROUNDS_COUNT];
-        String[] questionResult = new String[ROUNDS_COUNT];
-        for (int i = 0; i < result.length; i++) {
-            if (result[i] == 1) {
-                answer[i] = "yes";
-            } else if (result[i] != 1) {
-                answer[i] = "no";
+    public static void primeNumberResult(int[] questions, String nameUsr, int[] results, Scanner userInputString) {
+        String[] answers = new String[Engine.ROUNDS_COUNT];
+        String[] questionResult = new String[Engine.ROUNDS_COUNT];
+        for (int i = 0; i < results.length; i++) {
+            if (results[i] == 1) {
+                answers[i] = "yes";
+            } else if (results[i] != 1) {
+                answers[i] = "no";
             }
-            questionResult[i] = String.valueOf(question[i]);
+            questionResult[i] = String.valueOf(questions[i]);
         }
-        Engine.launchGameRounds(questionResult, answer, nameUsr, userInputString);
+        Engine.launchGameRounds(questionResult, answers, nameUsr, userInputString);
     }
 }
