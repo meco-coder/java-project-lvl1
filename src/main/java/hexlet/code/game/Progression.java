@@ -20,7 +20,8 @@ public class Progression {
             int point = (int) (Math.random() * progressions.length);
             int hiddenNumber = progressions[point];
             answers[i] = String.valueOf(hiddenNumber);
-            questions[i] = hidingElement(progressions, point);
+            String[] progressionWithHiddenElement = hidingElement(progressions, point);
+            questions[i] = creatingQuestion(progressionWithHiddenElement);
         }
         Engine.launchGameRounds(questions, answers, nameUsr, userInputString);
     }
@@ -30,7 +31,6 @@ public class Progression {
         int randomNum = Util.getRandomNumb(Engine.MAXIMUM_VALUE_LIMIT, Engine.MINIMUM_VALUE_LIMIT) + 1;
         int interval = Util.getRandomNumb(Engine.MAXIMUM_VALUE_LIMIT, Engine.MINIMUM_VALUE_LIMIT);
         int[] progressions = new int[lengthProgression];
-        progressions[0] = randomNum;
         for (int i = 0; i < lengthProgression - 1; i++) {
             progressions[0] = randomNum;
             progressions[i + 1] = progressions[i] + interval;
@@ -38,15 +38,19 @@ public class Progression {
         return progressions;
     }
 
-    public static String hidingElement(int[] progressions, int point) {
-        String[] questions = new String[progressions.length];
-        StringBuilder question = new StringBuilder();
-        for (int j = 0; j < progressions.length; j++) {
-            questions[j] = String.valueOf(progressions[j]);
+    public static String[] hidingElement(int[] progressions, int point) {
+        String[] progressionsWithHiddenElement = new String[progressions.length];
+        for (int i = 0; i < progressions.length; i++) {
+            progressionsWithHiddenElement[i] = String.valueOf(progressions[i]);
         }
-        questions[point] = "..";
-        for (int j = 0; j < progressions.length; j++) {
-            question.append(questions[j]).append(" ");
+        progressionsWithHiddenElement[point] = "..";
+        return progressionsWithHiddenElement;
+    }
+
+    public static String creatingQuestion(String[] progressionWithHiddenElement) {
+        StringBuilder question = new StringBuilder();
+        for (String s : progressionWithHiddenElement) {
+            question.append(s).append(" ");
         }
         return question.toString();
     }

@@ -15,9 +15,9 @@ public class Even {
         String[] questions = new String[Engine.ROUNDS_COUNT];
         for (int i = 0; i < answers.length; i++) {
             int question = Util.getRandomNumb(Engine.MAXIMUM_VALUE_LIMIT, Engine.MINIMUM_VALUE_LIMIT);
-            if (evenParity(question).equals(true)) {
+            if (isEven(question)) {
                 answers[i] = "yes";
-            } else if (evenParity(question).equals(false)) {
+            } else {
                 answers[i] = "no";
             }
             questions[i] = String.valueOf(question);
@@ -25,7 +25,7 @@ public class Even {
         Engine.launchGameRounds(questions, answers, nameUsr, userInputString);
     }
 
-    public static Boolean evenParity(int number) {
+    public static boolean isEven(int number) {
         return number % 2 == 0;
     }
 }
